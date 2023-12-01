@@ -1,4 +1,4 @@
-[![CI/CD](https://github.com/alexdlaird/pyngrok-example-django/workflows/CI/CD/badge.svg)](https://github.com/alexdlaird/pyngrok-example-django/actions?query=workflow%3ACI%2FCD)
+[![Build](https://github.com/alexdlaird/pyngrok-example-django/workflows/build.yml/badge.svg)](https://github.com/alexdlaird/pyngrok-example-django/actions/workflows/build.yml)
 ![GitHub License](https://img.shields.io/github/license/alexdlaird/pyngrok-example-django)
 
 # pyngrok Example - Django
