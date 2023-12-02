@@ -27,5 +27,5 @@ clean: nopyc
 test: install
 	@( \
 		source venv/bin/activate; \
-		python -m unittest discover -v -b; \
+		python manage.py test; \
 	)
