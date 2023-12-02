@@ -29,3 +29,9 @@ test: install
 		source venv/bin/activate; \
 		python manage.py test; \
 	)
+
+test-no-install:
+	@( \
+		source venv/bin/activate; \
+		python manage.py test; \
+	)
