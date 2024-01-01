@@ -1,4 +1,3 @@
-import os
 from unittest import TestCase
 
 from django.test import Client

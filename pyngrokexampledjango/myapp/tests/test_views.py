@@ -11,7 +11,7 @@ class TestCaseViews(TestCase):
         os.environ["USE_NGROK"] = "True"
         self.client = Client()
 
-    @unittest.skipIf("NGROK_AUTHTOKEN" not in os.environ, "NGROK_AUTHTOKEN environment variable not set")
+    @unittest.skipIf(not os.environ.get("NGROK_AUTHTOKEN"), "NGROK_AUTHTOKEN environment variable not set")
     def test_healthcheck(self):
         # WHEN
         response = self.client.get(reverse('healthcheck'))
