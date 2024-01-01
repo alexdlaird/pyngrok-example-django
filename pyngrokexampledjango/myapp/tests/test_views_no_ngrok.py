@@ -1,18 +1,15 @@
 import os
-import unittest
 from unittest import TestCase
 
 from django.test import Client
 from django.urls import reverse
 
 
-class TestCaseViews(TestCase):
+class TestCaseViewsNoNgrok(TestCase):
     def setUp(self):
-        os.environ["USE_NGROK"] = "True"
         self.client = Client()
 
-    @unittest.skipIf("NGROK_AUTHTOKEN" not in os.environ, "NGROK_AUTHTOKEN environment variable not set")
-    def test_healthcheck(self):
+    def test_healthcheck_no_ngrok(self):
         # WHEN
         response = self.client.get(reverse('healthcheck'))
 
