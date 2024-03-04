@@ -8,6 +8,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+__copyright__ = "Copyright (c) 2023-2024 Alex Laird"
+__license__ = "MIT"
+
 import sys
 import os
 

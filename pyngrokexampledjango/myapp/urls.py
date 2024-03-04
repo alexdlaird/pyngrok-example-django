@@ -1,3 +1,6 @@
+__copyright__ = "Copyright (c) 2023-2024 Alex Laird"
+__license__ = "MIT"
+
 from django.urls import re_path
 from django.contrib import admin
 

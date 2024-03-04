@@ -15,6 +15,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
+__copyright__ = "Copyright (c) 2023-2024 Alex Laird"
+__license__ = "MIT"
+
 from django.urls import re_path, include
 
 import pyngrokexampledjango.myapp.urls

@@ -1,5 +1,10 @@
 #!/usr/bin/env python
+
 """Django's command-line utility for administrative tasks."""
+
+__copyright__ = "Copyright (c) 2023-2024 Alex Laird"
+__license__ = "MIT"
+
 import os
 import sys
 
