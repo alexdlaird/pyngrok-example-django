@@ -2,19 +2,18 @@ __copyright__ = "Copyright (c) 2023-2024 Alex Laird"
 __license__ = "MIT"
 
 import os
-from unittest import TestCase
+import unittest
 
-from django.test import Client
+from django.conf import settings
+from django.test import LiveServerTestCase
 from django.urls import reverse
 
 
-class TestCaseViewsNoNgrok(TestCase):
-    def setUp(self):
-        os.environ["USE_NGROK"] = "False"
-        self.client = Client()
-
+class TestCaseViewsNoNgrok(LiveServerTestCase):
+    @unittest.skipUnless(os.environ.get("USE_NGROK", "False") == "False", "NGROK_AUTHTOKEN environment variable not set")
     def test_healthcheck_no_ngrok(self):
         # WHEN
         response = self.client.get(reverse('healthcheck'))
 
         self.assertEqual(response.status_code, 200)
+        self.assertNotIn("ngrok", settings.BASE_URL)
