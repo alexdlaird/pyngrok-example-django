@@ -27,6 +27,5 @@ clean: nopyc
 test: install
 	@( \
 		source venv/bin/activate; \
-		python manage.py test; \
-		USE_NGROK=True python manage.py test; \
+		USE_NGROK=False python manage.py test && USE_NGROK=True python manage.py test; \
 	)
