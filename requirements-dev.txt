@@ -1,1 +1,1 @@
-pyngrok==7.1.5
+pyngrok==7.1.6
