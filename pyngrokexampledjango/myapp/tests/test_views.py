@@ -15,7 +15,7 @@ class TestCaseViews(TestCase):
         response = self.client.get(reverse('healthcheck'))
 
         self.assertEqual(response.status_code, 200)
-        if os.environ.get("USE_NGROK", "False") == "True" and os.environ.get("NGROK_AUTHTOKEN"):
+        if os.environ.get("USE_NGROK", "False") == "True":
             sys.stderr.write("Asserting ngrok used -->")
             self.assertIn("ngrok", settings.BASE_URL)
         else:
