@@ -7,6 +7,7 @@ import sys
 from django.conf import settings
 from django.test import TestCase
 from django.urls import reverse
+from pyngrok import process, conf
 
 
 class TestCaseViews(TestCase):
@@ -18,6 +19,7 @@ class TestCaseViews(TestCase):
         if os.environ.get("USE_NGROK", "False") == "True":
             sys.stderr.write("Asserting ngrok used -->")
             self.assertIn("ngrok", settings.BASE_URL)
+            assert process.is_process_running(conf.get_default().ngrok_path)
         else:
             sys.stderr.write("Asserting ngrok not used -->")
             self.assertNotIn("ngrok", settings.BASE_URL)
