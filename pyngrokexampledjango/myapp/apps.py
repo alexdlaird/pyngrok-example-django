@@ -15,7 +15,7 @@ class MyAppConfig(AppConfig):
 
     def ready(self):
         if settings.USE_NGROK:
-            # pyngrok will only be installed, and should only ever be initialized, in a dev environment
+            # Only import pyngrok and install if we're actually going to use it
             from pyngrok import ngrok
 
             # Get the dev server port (defaults to 8000 for Django, can be overridden with the
@@ -33,5 +33,5 @@ class MyAppConfig(AppConfig):
 
     @staticmethod
     def init_webhooks(base_url):
-        # Update inbound traffic via APIs to use the public-facing ngrok URL
+        # ... Implement updates necessary so inbound traffic uses the public-facing ngrok URL
         pass
