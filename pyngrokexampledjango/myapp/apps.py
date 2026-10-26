@@ -20,8 +20,8 @@ class MyAppConfig(AppConfig):
 
             # Get the dev server port (defaults to 8000 for Django, can be overridden with the
             # last arg when calling `runserver`)
-            addrport = urlparse(f"http://{sys.argv[-1]}")
-            port = addrport.port if addrport.netloc and addrport.port else "8000"
+            addrport = sys.argv[-1].rsplit(":", 1)[-1]
+            port = addrport if addrport.isdigit() else "8000"
 
             # Open a ngrok tunnel to the dev server
             public_url = ngrok.connect(port).public_url
@@ -29,7 +29,11 @@ class MyAppConfig(AppConfig):
 
             # Update any base URLs or webhooks to use the public ngrok URL
             settings.BASE_URL = public_url
+            settings.ALLOWED_HOSTS.append(urlparse(public_url).hostname)
             MyAppConfig.init_webhooks(public_url)
+
+            # The dev server's autoreloader serves requests from a child process, which inherits this
+            os.environ["NGROK_PUBLIC_URL"] = public_url
 
     @staticmethod
     def init_webhooks(base_url):

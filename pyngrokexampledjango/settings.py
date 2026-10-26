@@ -14,6 +14,7 @@ __license__ = "MIT"
 import os
 import sys
 from pathlib import Path
+from urllib.parse import urlparse
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,7 +28,7 @@ SECRET_KEY = 'django-insecure-m2^5v)a^fgy&!&*nlr!j0v%!_$a+j41(-tk!v=8rhf)w!xeqc9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "[::1]"]
 
 # Application definition
 
@@ -120,7 +121,8 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-BASE_URL = "http://localhost:8000"
+BASE_URL = os.environ.get("NGROK_PUBLIC_URL", "http://localhost:8000")
+ALLOWED_HOSTS.append(urlparse(BASE_URL).hostname)
 
 DEV_SERVER = len(sys.argv) > 1 and sys.argv[1] == "runserver"
 
