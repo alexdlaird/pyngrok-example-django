@@ -50,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'pyngrokexampledjango.middleware.MuppetsMiddleware',
 ]
 
 ROOT_URLCONF = 'pyngrokexampledjango.urls'
