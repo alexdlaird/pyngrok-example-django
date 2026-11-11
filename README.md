@@ -3,7 +3,7 @@
 
 # pyngrok Example - Django
 
-This is an example project that shows how to easily integrate [`pyngrok`](https://github.com/alexdlaird/pyngrok)
+This is an example project that shows how to easily integrate [`pyngrok`](https://pyngrok.readthedocs.io/en/stable/)
 with [Django](https://docs.djangoproject.com/en/), as [summarized in the docs](https://pyngrok.readthedocs.io/en/latest/integrations.html#django).
 
 ## Running
